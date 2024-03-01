@@ -1,25 +1,18 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import Constants from "expo-constants";
-import Main from "./src/components/Main";
-import RepositoryList from "./src/components/RepositoryList";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/pages/Home";
+
+const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <View style={styles.bodyApp}>
-      <Main />
-      <RepositoryList />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Food-App" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  bodyApp: {
-    width: "100%",
-    minHeight: "100%",
-    paddingTop: Constants.statusBarHeight,
-    paddingBottom: Constants.statusBarHeight,
-  },
-});
 
 export default App;
