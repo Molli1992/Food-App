@@ -5,7 +5,7 @@ const foods = [
     price: "$600",
     description: "Pan de papa, cheddar, panceta y 2 medallones",
     img: "https://www.clarin.com/2022/05/27/0HXb0UR0v_2000x1500__1.jpg",
-    type: "Principales comidas",
+    type: "Principales",
     puntuacion: "4.1",
   },
   {
@@ -14,7 +14,7 @@ const foods = [
     price: "$700",
     description: "Mozzarella, tomate y albahaca",
     img: "https://resizer.glanacion.com/resizer/v2/pizza-NUKNWKWWRBAGXEECJWGLKMULVQ.jpg?auth=df70fb70d27e9a242dfe70068af898769f18e832bb543cb49d3faf002314bb82&width=768&height=512&quality=70&smart=true",
-    type: "Principales comidas",
+    type: "Principales",
     puntuacion: "4.5",
   },
   {
@@ -23,7 +23,7 @@ const foods = [
     price: "$500",
     description: "Jamon, queso, lechuga y tomate",
     img: "https://assets.elgourmet.com/wp-content/uploads/2023/10/shutterstock_2180078389.jpg",
-    type: "Principales comidas",
+    type: "Principales",
     puntuacion: "4.3",
   },
   {
@@ -32,7 +32,7 @@ const foods = [
     price: "$400",
     description: "Carne cortada a cuchillo",
     img: "https://assets.elgourmet.com/wp-content/uploads/2023/10/EMPANADAS-1-1024x683.jpg.webp",
-    type: "Principales comidas",
+    type: "Principales",
     puntuacion: "4.9",
   },
   {
@@ -41,7 +41,7 @@ const foods = [
     price: "$800",
     description: "Napolitana con papas fritas",
     img: "https://cloudfront-us-east-1.images.arcpublishing.com/elespectador/KRMQHXYYBFBI5KRDXUYY5AXH2A.jpg",
-    type: "Principales comidas",
+    type: "Principales",
     puntuacion: "4.7",
   },
   {

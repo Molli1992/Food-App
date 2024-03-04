@@ -8,10 +8,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import AddItemChart from "./addItmeChart";
 
 function FoodList(props) {
   const navigation = useNavigation();
-  const addItemToChart = () => {};
   return (
     <FlatList
       ref={props.Ref}
@@ -33,12 +33,7 @@ function FoodList(props) {
               <Text style={styles.text}>{food.name}</Text>
               <Text style={styles.text}>{food.description}</Text>
               <Text style={styles.text}>{food.price}</Text>
-              <TouchableOpacity
-                onPress={addItemToChart}
-                style={styles.touchable}
-              >
-                <Text style={styles.textTouchable}>Agregar al carrito</Text>
-              </TouchableOpacity>
+              <AddItemChart ID={food.id} />
             </View>
           </View>
         </TouchableOpacity>
@@ -61,27 +56,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 10,
+    minHeight: 135,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 125,
+    height: "100%",
     marginRight: 20,
     borderRadius: 10,
   },
   containerText: {
     flexDirection: "column",
     flex: 1,
-    width: 250,
+    width: 280,
   },
   text: {
     fontSize: 16,
     fontWeight: "600",
     flexWrap: "wrap",
-  },
-  textTouchable: {
-    color: "#0B7988",
-    fontSize: 18,
-    fontWeight: "400",
   },
 });
 

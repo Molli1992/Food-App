@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Image, ScrollView } from "react-native";
 import SearchBar from "../components/searchBar";
-import foods from "../data/dataFoods";
 import ButtonsSearch from "../components/buttonsSearch";
-import CardProducts from "../components/cardProducts";
+import Menu from "../components/menu";
+import foods from "../data/dataFoods";
 
 function Home() {
   return (
@@ -12,14 +12,7 @@ function Home() {
         <SearchBar />
         <Image source={{ uri: foods[2].img }} style={styles.image} />
         <ButtonsSearch />
-        {foods.length &&
-          foods.map((food) => {
-            if (food.type === "Bebidas") {
-              return null;
-            } else {
-              return <CardProducts Array={food} />;
-            }
-          })}
+        <Menu />
       </View>
     </ScrollView>
   );

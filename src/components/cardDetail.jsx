@@ -4,14 +4,13 @@ import foods from "../data/dataFoods";
 import { useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import AddItemChart from "./addItmeChart";
 
 const CardDetail = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { productId } = route.params;
   const [food, setFood] = useState([]);
-
-  const addItemToChart = () => {};
 
   useEffect(() => {
     if (food.length === 0) {
@@ -41,13 +40,11 @@ const CardDetail = () => {
           <Icon name="star" size={15} color="#fff" style={styles.iconStyle} />
         </View>
 
-        <TouchableOpacity onPress={addItemToChart} style={styles.touchable}>
-          <Text style={styles.textTouchable}>Agregar al carrito</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity onPress={() => navigation.push("Home")}>
           <Text style={styles.textHome}>Ir al inicio</Text>
         </TouchableOpacity>
+
+        <AddItemChart ID={food[0].id}/>
       </View>
     );
   }
@@ -86,17 +83,6 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   textPuntuacion: {
-    color: "white",
-    fontSize: 17,
-  },
-  touchable: {
-    backgroundColor: "#0B7988",
-    padding: 10,
-    borderRadius: 10,
-    width: 160,
-    marginTop: 10,
-  },
-  textTouchable: {
     color: "white",
     fontSize: 17,
   },
