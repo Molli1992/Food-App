@@ -1,11 +1,17 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useDispatch, useSelector } from "react-redux";
+import { postCarts } from "../redux/actions";
 
 function AddItmeChart(props) {
   const itemId = props.ID;
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
-  const addItemToChart = () => {};
+  const addItemToChart = () => {
+    dispatch(postCarts(itemId));
+  };
 
   const deleteItemOfChart = () => {};
 
@@ -21,7 +27,7 @@ function AddItmeChart(props) {
         />
       </TouchableOpacity>
 
-      <Text style={styles.text}>0</Text>
+      <Text style={styles.text}>{cart.length}</Text>
 
       <TouchableOpacity onPress={addItemToChart}>
         <Icon

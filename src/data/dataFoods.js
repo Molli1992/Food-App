@@ -2,7 +2,7 @@ const foods = [
   {
     id: "1",
     name: "Hamburguesa",
-    price: "$600",
+    price: "600",
     description: "Pan de papa, cheddar, panceta y 2 medallones",
     img: "https://www.clarin.com/2022/05/27/0HXb0UR0v_2000x1500__1.jpg",
     type: "Principales",
@@ -11,7 +11,7 @@ const foods = [
   {
     id: "2",
     name: "Pizza",
-    price: "$700",
+    price: "700",
     description: "Mozzarella, tomate y albahaca",
     img: "https://resizer.glanacion.com/resizer/v2/pizza-NUKNWKWWRBAGXEECJWGLKMULVQ.jpg?auth=df70fb70d27e9a242dfe70068af898769f18e832bb543cb49d3faf002314bb82&width=768&height=512&quality=70&smart=true",
     type: "Principales",
@@ -20,7 +20,7 @@ const foods = [
   {
     id: "3",
     name: "Sandwich",
-    price: "$500",
+    price: "500",
     description: "Jamon, queso, lechuga y tomate",
     img: "https://assets.elgourmet.com/wp-content/uploads/2023/10/shutterstock_2180078389.jpg",
     type: "Principales",
@@ -29,7 +29,7 @@ const foods = [
   {
     id: "4",
     name: "Empanada",
-    price: "$400",
+    price: "400",
     description: "Carne cortada a cuchillo",
     img: "https://assets.elgourmet.com/wp-content/uploads/2023/10/EMPANADAS-1-1024x683.jpg.webp",
     type: "Principales",
@@ -38,7 +38,7 @@ const foods = [
   {
     id: "5",
     name: "Milanesa",
-    price: "$800",
+    price: "800",
     description: "Napolitana con papas fritas",
     img: "https://cloudfront-us-east-1.images.arcpublishing.com/elespectador/KRMQHXYYBFBI5KRDXUYY5AXH2A.jpg",
     type: "Principales",
@@ -47,7 +47,7 @@ const foods = [
   {
     id: "6",
     name: "Agua",
-    price: "$100",
+    price: "100",
     description: "Eco de los andes",
     img: "https://masonlineprod.vtexassets.com/arquivos/ids/275097/Agua-Mineral-De-Manantial-Sin-Gas-Eco-De-Los-Andes-500-Cc-2-21367.jpg?v=638134761836900000",
     type: "Bebidas",
@@ -56,7 +56,7 @@ const foods = [
   {
     id: "7",
     name: "Coca-cola",
-    price: "$150",
+    price: "150",
     description: "Sabor comun",
     img: "https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg",
     type: "Bebidas",
@@ -65,7 +65,7 @@ const foods = [
   {
     id: "8",
     name: "Cerveza",
-    price: "$200",
+    price: "200",
     description: "Corona",
     img: "https://dcdn.mitiendanube.com/stores/001/147/470/products/cerveza-corona-lata1-4b2317d0a6405c260616305109451270-480-0.jpg",
     type: "Bebidas",
@@ -74,7 +74,7 @@ const foods = [
   {
     id: "9",
     name: "Helado",
-    price: "$250",
+    price: "250",
     description: "De chocolate con relleno de crema americana",
     img: "https://www.marialunarillos.com/blog/wp-content/uploads/2014/07/bombon-helado-1.jpg",
     type: "Postres",

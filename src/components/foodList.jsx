@@ -32,7 +32,7 @@ function FoodList(props) {
             <View style={styles.containerText}>
               <Text style={styles.text}>{food.name}</Text>
               <Text style={styles.text}>{food.description}</Text>
-              <Text style={styles.text}>{food.price}</Text>
+              <Text style={styles.text}>${food.price}</Text>
               <AddItemChart ID={food.id} />
             </View>
           </View>

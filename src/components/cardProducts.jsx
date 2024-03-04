@@ -22,11 +22,11 @@ function CardProducts(props) {
 
           <Text style={styles.text}>{props.Array.description}</Text>
 
-          <Text style={styles.text}>{props.Array.price}</Text>
+          <Text style={styles.text}>${props.Array.price}</Text>
 
           <View style={styles.containerPuntuacion}>
             <Text style={styles.textPuntuacion}>{props.Array.puntuacion}</Text>
-            <Icon name="star" size={15} color="#fff" style={styles.iconStyle} />
+            <Icon name="star" size={12} color="#fff" style={styles.iconStyle} />
           </View>
 
           <AddItemChart ID={props.Array.id} />
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   containerPuntuacion: {
-    width: 75,
+    width: 67,
     marginTop: 5,
     marginBottom: 5,
     padding: 10,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   textPuntuacion: {
     color: "white",
-    fontSize: 17,
+    fontSize: 14,
   },
 });
 

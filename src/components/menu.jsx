@@ -6,8 +6,6 @@ import foods from "../data/dataFoods";
 function Menu() {
   return (
     <View style={styles.bodyMenu}>
-      <Text style={styles.textTittle}>Menu:</Text>
-
       <Text style={styles.text}>Bebidas</Text>
       {foods.length &&
         foods.map((food) => {
@@ -42,14 +40,10 @@ function Menu() {
 }
 
 const styles = StyleSheet.create({
-  textTittle: {
-    fontWeight: "bold",
-    fontSize: 42,
-  },
   text: {
     fontWeight: "bold",
     fontSize: 32,
-    marginTop: 30,
+    marginTop: 22,
   },
 });
 

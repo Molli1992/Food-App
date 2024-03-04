@@ -33,7 +33,7 @@ const CardDetail = () => {
 
         <Text style={styles.text}>{food[0].description}</Text>
 
-        <Text style={styles.text}>{food[0].price}</Text>
+        <Text style={styles.text}>${food[0].price}</Text>
 
         <View style={styles.containerPuntuacion}>
           <Text style={styles.textPuntuacion}>{food[0].puntuacion}</Text>
