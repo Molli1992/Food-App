@@ -1,16 +1,27 @@
 import React from "react";
-import { View, StyleSheet, Image, FlatList } from "react-native";
+import { View, StyleSheet, Image, ScrollView } from "react-native";
 import SearchBar from "../components/searchBar";
 import foods from "../data/dataFoods";
 import ButtonsSearch from "../components/buttonsSearch";
+import CardProducts from "../components/cardProducts";
 
 function Home() {
   return (
-    <View style={styles.bodyHome}>
-      <SearchBar />
-      <Image source={{ uri: foods[2].img }} style={styles.image} />
-      <ButtonsSearch />
-    </View>
+    <ScrollView>
+      <View style={styles.bodyHome}>
+        <SearchBar />
+        <Image source={{ uri: foods[2].img }} style={styles.image} />
+        <ButtonsSearch />
+        {foods.length &&
+          foods.map((food) => {
+            if (food.type === "Bebidas") {
+              return null;
+            } else {
+              return <CardProducts Array={food} />;
+            }
+          })}
+      </View>
+    </ScrollView>
   );
 }
 

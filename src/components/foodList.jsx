@@ -1,22 +1,47 @@
 import React from "react";
-import { FlatList, StyleSheet, Image, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Image,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 function FoodList(props) {
+  const navigation = useNavigation();
+  const addItemToChart = () => {};
   return (
     <FlatList
+      ref={props.Ref}
       horizontal={true}
       style={styles.list}
       data={props.Array}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item: food }) => (
-        <View style={styles.containerFoods}>
-          <Image source={{ uri: food.img }} style={styles.image} />
-          <View style={styles.containerText}>
-            <Text style={styles.text}>{food.name}</Text>
-            <Text style={styles.text}>{food.description}</Text>
-            <Text style={styles.text}>{food.price}</Text>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.push("CardDetail", {
+              productId: food.id,
+            })
+          }
+        >
+          <View style={styles.containerFoods}>
+            <Image source={{ uri: food.img }} style={styles.image} />
+            <View style={styles.containerText}>
+              <Text style={styles.text}>{food.name}</Text>
+              <Text style={styles.text}>{food.description}</Text>
+              <Text style={styles.text}>{food.price}</Text>
+              <TouchableOpacity
+                onPress={addItemToChart}
+                style={styles.touchable}
+              >
+                <Text style={styles.textTouchable}>Agregar al carrito</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
       )}
     />
   );
@@ -46,11 +71,17 @@ const styles = StyleSheet.create({
   containerText: {
     flexDirection: "column",
     flex: 1,
+    width: 250,
   },
   text: {
     fontSize: 16,
     fontWeight: "600",
     flexWrap: "wrap",
+  },
+  textTouchable: {
+    color: "#0B7988",
+    fontSize: 18,
+    fontWeight: "400",
   },
 });
 

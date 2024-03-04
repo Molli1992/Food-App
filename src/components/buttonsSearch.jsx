@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import foods from "../data/dataFoods";
 import FoodList from "./foodList";
 
 function ButtonsSearch() {
   const [filter, setFilter] = useState([]);
+  const flatListRef = useRef(null);
+
+  const scrollToTop = () => {
+    flatListRef.current?.scrollToOffset({ animated: true, offset: 0 });
+  };
 
   const filterPrincipales = () => {
     let filteredFoods = foods.filter((food) => {
@@ -13,6 +18,7 @@ function ButtonsSearch() {
     });
 
     setFilter(filteredFoods);
+    scrollToTop();
   };
 
   const filterBebidas = () => {
@@ -22,6 +28,7 @@ function ButtonsSearch() {
     });
 
     setFilter(filteredFoods);
+    scrollToTop();
   };
 
   const filterPostres = () => {
@@ -31,11 +38,20 @@ function ButtonsSearch() {
     });
 
     setFilter(filteredFoods);
+    scrollToTop();
   };
 
-  const filterClean = () => {
-    setFilter([]);
-  };
+  useEffect(() => {
+    if (filter.length === 0) {
+      let filteredFoods = foods.filter((food) => {
+        const searchStr = "principales";
+        return food.type.toLowerCase().includes(searchStr);
+      });
+
+      setFilter(filteredFoods);
+    }
+  }, [filter]);
+
   return (
     <View style={styles.bodyButtonsSearch}>
       <View style={styles.containerButtonsSearch}>
@@ -50,13 +66,9 @@ function ButtonsSearch() {
         <TouchableOpacity style={styles.touchable} onPress={filterPostres}>
           <Text style={styles.text}>Postres</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.touchable} onPress={filterClean}>
-          <Text style={styles.text}>Clean</Text>
-        </TouchableOpacity>
       </View>
 
-      {filter.length ? <FoodList Array={filter} /> : null}
+      {filter.length ? <FoodList Array={filter} Ref={flatListRef} /> : null}
     </View>
   );
 }
