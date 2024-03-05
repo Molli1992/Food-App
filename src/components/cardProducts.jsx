@@ -1,38 +1,28 @@
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useNavigation } from "@react-navigation/native";
 import AddItemChart from "./addItmeChart";
 
 function CardProducts(props) {
-  const navigation = useNavigation();
   return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("CardDetail", {
-          productId: props.Array.id,
-        })
-      }
-    >
-      <View style={styles.bodyCardProducts} id={props.Array.id}>
-        <Image source={{ uri: props.Array.img }} style={styles.image} />
+    <View style={styles.bodyCardProducts} id={props.Array.id}>
+      <Image source={{ uri: props.Array.img }} style={styles.image} />
 
-        <View style={styles.container} id={props.Array.id}>
-          <Text style={styles.textTittle}>{props.Array.name}</Text>
+      <View style={styles.container} id={props.Array.id}>
+        <Text style={styles.textTittle}>{props.Array.name}</Text>
 
-          <Text style={styles.text}>{props.Array.description}</Text>
+        <Text style={styles.text}>{props.Array.description}</Text>
 
-          <Text style={styles.text}>${props.Array.price}</Text>
+        <Text style={styles.text}>${props.Array.price}</Text>
 
-          <View style={styles.containerPuntuacion}>
-            <Text style={styles.textPuntuacion}>{props.Array.puntuacion}</Text>
-            <Icon name="star" size={12} color="#fff" style={styles.iconStyle} />
-          </View>
-
-          <AddItemChart ID={props.Array.id} />
+        <View style={styles.containerPuntuacion}>
+          <Text style={styles.textPuntuacion}>{props.Array.puntuacion}</Text>
+          <Icon name="star" size={12} color="#fff" style={styles.iconStyle} />
         </View>
+
+        <AddItemChart ID={props.Array.id} />
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 

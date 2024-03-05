@@ -5,13 +5,10 @@ import {
   Image,
   Text,
   View,
-  TouchableOpacity,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import AddItemChart from "./addItmeChart";
 
 function FoodList(props) {
-  const navigation = useNavigation();
   return (
     <FlatList
       ref={props.Ref}
@@ -20,23 +17,15 @@ function FoodList(props) {
       data={props.Array}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item: food }) => (
-        <TouchableOpacity
-          onPress={() =>
-            navigation.push("CardDetail", {
-              productId: food.id,
-            })
-          }
-        >
-          <View style={styles.containerFoods}>
-            <Image source={{ uri: food.img }} style={styles.image} />
-            <View style={styles.containerText}>
-              <Text style={styles.text}>{food.name}</Text>
-              <Text style={styles.text}>{food.description}</Text>
-              <Text style={styles.text}>${food.price}</Text>
-              <AddItemChart ID={food.id} />
-            </View>
+        <View style={styles.containerFoods}>
+          <Image source={{ uri: food.img }} style={styles.image} />
+          <View style={styles.containerText}>
+            <Text style={styles.text}>{food.name}</Text>
+            <Text style={styles.text}>{food.description}</Text>
+            <Text style={styles.text}>${food.price}</Text>
+            <AddItemChart ID={food.id} />
           </View>
-        </TouchableOpacity>
+        </View>
       )}
     />
   );

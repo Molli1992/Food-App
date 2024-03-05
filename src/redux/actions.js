@@ -1,5 +1,21 @@
 import foods from "../data/dataFoods.js";
-import { POST_CART, DELETE_CART, DELET_ALL_CART } from "./types.js";
+import {
+  POST_CART,
+  DELETE_CART,
+  DELETE_ALL_CART,
+  GET_LENGTH,
+} from "./types.js";
+
+export function getLength(id) {
+  return async function (dispatch) {
+    let counter = { id: id };
+
+    return dispatch({
+      type: GET_LENGTH,
+      payload: counter,
+    });
+  };
+}
 
 export function postCarts(id) {
   return async function (dispatch) {
@@ -14,20 +30,20 @@ export function postCarts(id) {
   };
 }
 
-export function deleteCarts() {
+export function deleteCarts(id) {
   return async function (dispatch) {
     return dispatch({
       type: DELETE_CART,
-      payload: "lo que se manda al reducer",
+      payload: id,
     });
   };
 }
 
-export function deleteAllCarts() {
+export function deleteAllCarts(id) {
   return async function (dispatch) {
     return dispatch({
-      type: DELET_ALL_CART,
-      payload: "lo que se manda al reducer",
+      type: DELETE_ALL_CART,
+      payload: id,
     });
   };
 }

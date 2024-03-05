@@ -18,6 +18,16 @@ const ShoppingChart = () => {
     finalPrice = Number(finalPrice) + Number(cart[i].price);
   }
 
+  const uniqueIds = new Set();
+
+  const uniqueCartItems = cart.filter((item) => {
+    if (!uniqueIds.has(item.id)) {
+      uniqueIds.add(item.id);
+      return true;
+    }
+    return false;
+  });
+
   return (
     <ScrollView>
       <View style={styles.bodyChart}>
@@ -28,10 +38,10 @@ const ShoppingChart = () => {
           <Text style={styles.textTouchable}>Comprar</Text>
         </TouchableOpacity>
 
-        {cart.lenght !== 0 &&
-          cart.map((cart) => {
+        {uniqueCartItems.lenght !== 0 &&
+          uniqueCartItems.map((cart) => {
             return (
-              <View style={styles.container}>
+              <View style={styles.container} id={cart.id}>
                 <Image source={{ uri: cart.img }} style={styles.image} />
 
                 <View style={styles.containerText}>

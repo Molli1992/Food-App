@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import CardDetail from "../components/cardDetail";
 import SearchBar from "../components/searchBar";
+import Reseña from "../components/reseña";
 
 const ProductDetail = () => {
   return (
@@ -9,6 +10,7 @@ const ProductDetail = () => {
       <View style={styles.bodyProductDetail}>
         <SearchBar />
         <CardDetail />
+        <Reseña />
       </View>
     </ScrollView>
   );
@@ -16,7 +18,9 @@ const ProductDetail = () => {
 
 const styles = StyleSheet.create({
   bodyProductDetail: {
-    padding: 15,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingBottom: 15,
   },
 });
 

@@ -1,21 +1,36 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-import { postCarts } from "../redux/actions";
+import {
+  postCarts,
+  getLength,
+  deleteAllCarts,
+  deleteCarts,
+} from "../redux/actions";
 
 function AddItmeChart(props) {
+  const navigation = useNavigation();
   const itemId = props.ID;
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const length = useSelector((state) => state.length);
+  const lengthFilter = length.filter((id) => {
+    return id.id === itemId;
+  });
 
   const addItemToChart = () => {
     dispatch(postCarts(itemId));
+    dispatch(getLength(itemId));
   };
 
-  const deleteItemOfChart = () => {};
+  const deleteItemOfChart = () => {
+    dispatch(deleteCarts(itemId));
+  };
 
-  const deleteAllItemsOfChart = () => {};
+  const deleteAllItemsOfChart = () => {
+    dispatch(deleteAllCarts(itemId));
+  };
   return (
     <View style={styles.bodyButtonsChart}>
       <TouchableOpacity onPress={deleteItemOfChart}>
@@ -27,7 +42,7 @@ function AddItmeChart(props) {
         />
       </TouchableOpacity>
 
-      <Text style={styles.text}>{cart.length}</Text>
+      <Text style={styles.text}>{lengthFilter.length}</Text>
 
       <TouchableOpacity onPress={addItemToChart}>
         <Icon
@@ -46,6 +61,16 @@ function AddItmeChart(props) {
           style={styles.iconStyle}
         />
       </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("CardDetail", {
+            productId: itemId,
+          })
+        }
+      >
+        <Text style={styles.textTouchable}>Info</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -61,6 +86,15 @@ const styles = StyleSheet.create({
     color: "#0B7988",
     fontWeight: "bold",
     fontSize: 18,
+  },
+  textTouchable: {
+    color: "#0B7988",
+    fontSize: 17,
+    fontWeight: "bold",
+    borderWidth: 1,
+    borderColor: "#0B7988",
+    borderRadius: 10,
+    padding: 5,
   },
 });
 
