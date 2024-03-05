@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "rate-app",
-    "slug": "rate-app",
+    "name": "Food App",
+    "slug": "Food-App",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/food-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/food-icon-loader.gif",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
