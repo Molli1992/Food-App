@@ -29,7 +29,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "7f181bab-bc1d-49d7-8100-7ecc2761dd13"
+        "projectId": "fda9dea4-6bd1-4203-8553-ddcab91ba3af"
       }
     },
     "owner": "morcilla91",
@@ -37,7 +37,7 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/f93d1ec5-0dfe-4dc7-9bae-e855a6e0abb6"
+      "url": "https://u.expo.dev/fda9dea4-6bd1-4203-8553-ddcab91ba3af"
     }
   }
 }
