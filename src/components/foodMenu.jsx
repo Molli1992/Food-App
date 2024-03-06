@@ -1,48 +1,99 @@
-import React from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import CardProducts from "./cardProducts";
 import foods from "../data/dataFoods";
 
 function Menu() {
+  const [stateView, setStateView] = useState("todos");
+
+  const seeBebidas = () => {
+    setStateView("bebidas");
+  };
+
+  const seePrincipales = () => {
+    setStateView("principales");
+  };
+
+  const seePostres = () => {
+    setStateView("postres");
+  };
+
+  const seeAll = () => {
+    setStateView("todos");
+  };
+
+  const arrayTouchable = [
+    { name: "Menu completo", id: 1, action: seeAll },
+    { name: "Bebidas", id: 2, action: seeBebidas },
+    { name: "Principales", id: 3, action: seePrincipales },
+    { name: "Postres", id: 4, action: seePostres },
+  ];
   return (
     <View style={styles.bodyMenu}>
-      <View style={styles.containerButtonsSearch}>
-        <TouchableOpacity style={styles.touchable}>
-          <Text style={styles.text}>Bebidas</Text>
-        </TouchableOpacity>
+      <FlatList
+        horizontal={true}
+        style={styles.list}
+        data={arrayTouchable}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.containerButtonsSearch}>
+            <TouchableOpacity style={styles.touchable} onPress={item.action}>
+              <Text style={styles.text}>{item.name}</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      />
 
-        <TouchableOpacity style={styles.touchable}>
-          <Text style={styles.text}>Principales</Text>
-        </TouchableOpacity>
+      {stateView === "todos" || stateView === "bebidas" ? (
+        <View>
+          {stateView === "todos" ? (
+            <Text style={styles.textMenu}>Bebidas</Text>
+          ) : (
+            <Text style={styles.textFilter}>Bebidas</Text>
+          )}
 
-        <TouchableOpacity style={styles.touchable}>
-          <Text style={styles.text}>Postres</Text>
-        </TouchableOpacity>
-      </View>
+          {foods.length !== 0 &&
+            foods.map((food) => {
+              if (food.type === "Bebidas") return <CardProducts Array={food} />;
+            })}
+        </View>
+      ) : null}
 
-      <View>
-        <Text style={styles.textMenu}>Bebidas</Text>
-        {foods.length !== 0 &&
-          foods.map((food) => {
-            if (food.type === "Bebidas") return <CardProducts Array={food} />;
-          })}
-      </View>
+      {stateView === "todos" || stateView === "principales" ? (
+        <View>
+          {stateView === "todos" ? (
+            <Text style={styles.textMenu}>Principales</Text>
+          ) : (
+            <Text style={styles.textFilter}>Principales</Text>
+          )}
+          {foods.length !== 0 &&
+            foods.map((food) => {
+              if (food.type === "Principales")
+                return <CardProducts Array={food} />;
+            })}
+        </View>
+      ) : null}
 
-      <View>
-        <Text style={styles.textMenu}>Principales</Text>
-        {foods.length !== 0 &&
-          foods.map((food) => {
-            if (food.type === "Principales") return <CardProducts Array={food} />;
-          })}
-      </View>
-
-      <View>
-        <Text style={styles.textMenu}>Postres</Text>
-        {foods.length !== 0 &&
-          foods.map((food) => {
-            if (food.type === "Postres") return <CardProducts Array={food} />;
-          })}
-      </View>
+      {stateView === "todos" || stateView === "postres" ? (
+        <View>
+          {stateView === "todos" ? (
+            <Text style={styles.textMenu}>Postres</Text>
+          ) : (
+            <Text style={styles.textFilter}>Postres</Text>
+          )}
+          {foods.length !== 0 &&
+            foods.map((food) => {
+              if (food.type === "Postres") return <CardProducts Array={food} />;
+            })}
+        </View>
+      ) : null}
     </View>
   );
 }
@@ -51,13 +102,16 @@ const styles = StyleSheet.create({
   bodyMenu: {
     width: "100%",
   },
+  list: {
+    marginTop: 10,
+    marginBottom: 10,
+    paddingBottom: 10,
+  },
   containerButtonsSearch: {
-    width: "100%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 10,
-    gap: 15,
+    margin: 5,
   },
   touchable: {
     backgroundColor: "#0B7988",
@@ -71,7 +125,13 @@ const styles = StyleSheet.create({
   textMenu: {
     fontWeight: "bold",
     fontSize: 32,
-    marginTop: 22,
+    marginTop: 25,
+  },
+  textFilter: {
+    fontWeight: "bold",
+    fontSize: 32,
+    marginTop: 25,
+    color: "gray",
   },
 });
 

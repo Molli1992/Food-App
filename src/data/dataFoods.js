@@ -82,6 +82,24 @@ const foods = [
   },
   {
     id: "10",
+    name: "Flan",
+    price: "300",
+    description: "Flan con dulce de leche o crema",
+    img: "https://imag.bonviveur.com/presentacion-principal-del-flan-de-dulce-de-leche.jpg",
+    type: "Postres",
+    puntuacion: "4.9",
+  },
+  {
+    id: "11",
+    name: "Alfajor de maicena",
+    price: "200",
+    description: "Marca Cachafaz",
+    img: "https://winetodoor.store/cdn/shop/products/CRI04259_1024x1024_2f06060a-da45-44b4-9824-70e33da2e4e5.jpg?v=1635464051",
+    type: "Postres",
+    puntuacion: "4.9",
+  },
+  {
+    id: "12",
     name: "Combo Porteño",
     price: "525",
     description: "3 Empanadas + Bebida sin alcohol",
@@ -90,7 +108,7 @@ const foods = [
     puntuacion: "4.1",
   },
   {
-    id: "11",
+    id: "13",
     name: "Milanight",
     price: "775",
     description: "Milanesa + Bebida sin alcohol",
@@ -99,7 +117,7 @@ const foods = [
     puntuacion: "4.5",
   },
   {
-    id: "12",
+    id: "14",
     name: "Dulce Descanso",
     price: "575",
     description: "Sandwich + Bebida sin alcohol",
@@ -108,7 +126,7 @@ const foods = [
     puntuacion: "4.9",
   },
   {
-    id: "13",
+    id: "15",
     name: "Burger Fest",
     price: "725",
     description: "Hamburguesa + Cerveza",
@@ -117,7 +135,7 @@ const foods = [
     puntuacion: "4.3",
   },
   {
-    id: "14",
+    id: "16",
     name: "Pizza Cheers",
     price: "900",
     description: "Pizza + Cerveza",
