@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     paddingHorizontal: 8,
     paddingVertical: 2,
-    borderRadius: 15,
+    borderRadius: 12,
     overflow: "hidden",
     textAlign: "center",
     width: 25,

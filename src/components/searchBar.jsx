@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 import foods from "../data/dataFoods";
-import FoodList from "./foodList";
+import FlatList from "./flatList";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 function SearchBar() {
@@ -45,7 +45,9 @@ function SearchBar() {
         <Icon name="search" size={20} color="#000" style={styles.iconStyle} />
       </View>
 
-      {filter.length ? <FoodList Array={filter} Ref={flatListRef} /> : null}
+      {filter.length ? (
+        <FlatList Array={filter} Position={true} Ref={flatListRef} />
+      ) : null}
     </View>
   );
 }

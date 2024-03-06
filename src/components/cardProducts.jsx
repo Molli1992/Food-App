@@ -1,6 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { View, StyleSheet, Image, Text } from "react-native";
 import AddItemChart from "./addItmeChart";
 
 function CardProducts(props) {
@@ -14,11 +13,6 @@ function CardProducts(props) {
         <Text style={styles.text}>{props.Array.description}</Text>
 
         <Text style={styles.text}>${props.Array.price}</Text>
-
-        <View style={styles.containerPuntuacion}>
-          <Text style={styles.textPuntuacion}>{props.Array.puntuacion}</Text>
-          <Icon name="star" size={12} color="#fff" style={styles.iconStyle} />
-        </View>
 
         <AddItemChart ID={props.Array.id} />
       </View>
@@ -35,6 +29,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingBottom: 10,
     flexDirection: "row",
+    height: 150,
   },
   image: { width: "40%", height: "100%", borderRadius: 10 },
   container: {
@@ -48,22 +43,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     flexWrap: "wrap",
     marginTop: 2,
-  },
-  containerPuntuacion: {
-    width: 67,
-    marginTop: 5,
-    marginBottom: 5,
-    padding: 10,
-    backgroundColor: "gray",
-    borderRadius: 10,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10,
-  },
-  textPuntuacion: {
-    color: "white",
-    fontSize: 14,
   },
 });
 
