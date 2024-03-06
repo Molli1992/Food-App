@@ -64,7 +64,7 @@ function AddItmeChart(props) {
 
       <TouchableOpacity
         onPress={() =>
-          navigation.navigate("CardDetail", {
+          navigation.push("CardDetail", {
             productId: itemId,
           })
         }
