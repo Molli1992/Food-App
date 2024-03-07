@@ -49,6 +49,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: action.payload,
+        length: action.payload,
       };
 
       return state;

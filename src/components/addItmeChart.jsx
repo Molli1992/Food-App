@@ -25,7 +25,13 @@ function AddItmeChart(props) {
   };
 
   const deleteItemOfChart = () => {
-    dispatch(deleteCarts(itemId));
+    let items = length.filter((item) => item.id === itemId);
+
+    if (items.length) {
+      dispatch(deleteCarts(itemId));
+    } else {
+      return null;
+    }
   };
 
   const deleteAllItemsOfChart = () => {
