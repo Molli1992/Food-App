@@ -3,6 +3,7 @@ import {
   DELETE_CART,
   DELETE_ALL_CART,
   GET_LENGTH,
+  DELETE_CHART,
 } from "./types.js";
 
 const initialState = {
@@ -43,6 +44,13 @@ const rootReducer = (state = initialState, action) => {
           ],
         };
       }
+
+    case DELETE_CHART:
+      return {
+        ...state,
+        cart: action.payload,
+      };
+
       return state;
 
     default:

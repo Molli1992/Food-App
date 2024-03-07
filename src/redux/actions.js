@@ -4,6 +4,7 @@ import {
   DELETE_CART,
   DELETE_ALL_CART,
   GET_LENGTH,
+  DELETE_CHART,
 } from "./types.js";
 
 export function getLength(id) {
@@ -44,6 +45,15 @@ export function deleteAllCarts(id) {
     return dispatch({
       type: DELETE_ALL_CART,
       payload: id,
+    });
+  };
+}
+
+export function deleteChart() {
+  return async function (dispatch) {
+    return dispatch({
+      type: DELETE_CHART,
+      payload: [],
     });
   };
 }

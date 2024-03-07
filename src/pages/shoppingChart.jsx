@@ -6,11 +6,14 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { useSelector } from "react-redux";
 import AddItmeChart from "../components/addItmeChart";
+import { useNavigation } from "@react-navigation/native";
 
 const ShoppingChart = () => {
+  const navigation = useNavigation();
   const cart = useSelector((state) => state.cart);
   var finalPrice = 0;
 
@@ -27,6 +30,13 @@ const ShoppingChart = () => {
     }
     return false;
   });
+  const routePayment = () => {
+    if (!cart.length) {
+      Alert.alert("El carrito está vacío");
+    } else {
+      navigation.navigate("Payment");
+    }
+  };
 
   return (
     <ScrollView>
@@ -34,7 +44,7 @@ const ShoppingChart = () => {
         <Text style={styles.textTittle}>Carrito</Text>
         <Text style={styles.textPrice}>Precio Final: ${finalPrice}</Text>
 
-        <TouchableOpacity style={styles.touchable}>
+        <TouchableOpacity style={styles.touchable} onPress={routePayment}>
           <Text style={styles.textTouchable}>Comprar</Text>
         </TouchableOpacity>
 
