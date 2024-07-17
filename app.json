@@ -4,6 +4,7 @@
     "slug": "food-app",
     "description": "React Native Food App",
     "version": "1.0.0",
+    "sdkVersion": "51.0.0",
     "orientation": "portrait",
     "icon": "./assets/food-icon.png",
     "userInterfaceStyle": "light",
