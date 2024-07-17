@@ -12,6 +12,9 @@
       "ios": {
         "simulator": true,
         "image": "default"
+      },
+      "env": {
+        "PRUEBA_ENV": "PRUEBA"
       }
     },
     "preview": {
@@ -23,6 +26,9 @@
       "ios": {
         "simulator": true,
         "image": "default"
+      },
+      "env": {
+        "PRUEBA_ENV": "PRUEBA"
       }
     },
     "production": {
@@ -34,6 +40,9 @@
       "ios": {
         "simulator": false,
         "image": "default"
+      },
+      "env": {
+        "PRUEBA_ENV": "PRUEBA"
       }
     }
   },
@@ -50,4 +59,3 @@
     }
   }
 }
-

@@ -40,7 +40,6 @@ function AddItmeChart(props) {
     dispatch(deleteAllCarts(itemId));
   };
 
-  console.log(route.name);
   return (
     <View style={styles.bodyButtonsChart}>
       <TouchableOpacity onPress={deleteItemOfChart}>
