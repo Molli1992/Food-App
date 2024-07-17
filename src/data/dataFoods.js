@@ -94,7 +94,7 @@ const foods = [
     name: "Alfajor de maicena",
     price: "200",
     description: "Marca Cachafaz",
-    img: "https://winetodoor.store/cdn/shop/products/CRI04259_1024x1024_2f06060a-da45-44b4-9824-70e33da2e4e5.jpg?v=1635464051",
+    img: "https://http2.mlstatic.com/D_NQ_NP_727296-MLA54387140930_032023-O.webp",
     type: "Postres",
     puntuacion: "4.9",
   },

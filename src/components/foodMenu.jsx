@@ -5,7 +5,6 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
-  ScrollView,
 } from "react-native";
 import CardProducts from "./cardProducts";
 import foods from "../data/dataFoods";
@@ -35,6 +34,7 @@ function Menu() {
     { name: "Principales", id: 3, action: seePrincipales },
     { name: "Postres", id: 4, action: seePostres },
   ];
+
   return (
     <View style={styles.bodyMenu}>
       <FlatList
