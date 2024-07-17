@@ -7,8 +7,6 @@ import foods from "../data/dataFoods";
 import { PRUEBA_ENV } from "@env";
 
 function Home() {
-  console.log(PRUEBA_ENV);
-
   if (PRUEBA_ENV) {
     return (
       <ScrollView>

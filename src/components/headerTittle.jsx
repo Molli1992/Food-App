@@ -1,18 +1,30 @@
 import * as React from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 
-function headerTittle() {
+function headerTittle(props) {
   const navigation = useNavigation();
+  const route = useRoute();
 
   const routeChart = () => {
-    navigation.navigate("Home");
+    if (route.name === "Login" || route.name === "Register") {
+      return null;
+    } else {
+      navigation.navigate("Home");
+    }
   };
 
   return (
-    <TouchableOpacity onPress={routeChart}>
-      <Text style={styles.text}>Food-App</Text>
-    </TouchableOpacity>
+    <View>
+      {route.name === "Login" || route.name === "Register" ? (
+        <Text style={styles.text}>{props.Title}</Text>
+      ) : (
+        <TouchableOpacity onPress={routeChart}>
+          <Text style={styles.text}>Food-App</Text>
+        </TouchableOpacity>
+      )}
+    </View>
   );
 }
 
