@@ -61,7 +61,8 @@ function Menu() {
 
           {foods.length !== 0 &&
             foods.map((food) => {
-              if (food.type === "Bebidas") return <CardProducts Array={food} />;
+              if (food.type === "Bebidas")
+                return <CardProducts key={food.id} Array={food} />;
             })}
         </View>
       ) : null}
@@ -76,7 +77,7 @@ function Menu() {
           {foods.length !== 0 &&
             foods.map((food) => {
               if (food.type === "Principales")
-                return <CardProducts Array={food} />;
+                return <CardProducts key={food.id} Array={food} />;
             })}
         </View>
       ) : null}
@@ -90,7 +91,8 @@ function Menu() {
           )}
           {foods.length !== 0 &&
             foods.map((food) => {
-              if (food.type === "Postres") return <CardProducts Array={food} />;
+              if (food.type === "Postres")
+                return <CardProducts key={food.id} Array={food} />;
             })}
         </View>
       ) : null}

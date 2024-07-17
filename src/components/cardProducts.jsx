@@ -4,7 +4,7 @@ import AddItemChart from "./addItmeChart";
 
 function CardProducts(props) {
   return (
-    <View style={styles.bodyCardProducts} key={props.Array.id}>
+    <View style={styles.bodyCardProducts}>
       <Image source={{ uri: props.Array.img }} style={styles.image} />
 
       <View style={styles.container} id={props.Array.id}>
