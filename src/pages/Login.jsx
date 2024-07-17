@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import PrimaryInput from "../components/inputs/primary";
 import PrimaryButton from "../components/buttons/primary";
@@ -24,6 +31,17 @@ function Login() {
     navigation.navigate("Register");
   };
 
+  const onSubmit = () => {
+    if (!user.email || !user.password) {
+      Alert.alert("", "Completar todos los campos");
+    } else {
+      setUser({
+        email: "",
+        password: "",
+      });
+      navigation.navigate("Home");
+    }
+  };
   return (
     <View style={styles.body}>
       <Image source={Logo} style={styles.image} />
@@ -43,7 +61,7 @@ function Login() {
         Width="70%"
       />
 
-      <PrimaryButton Text="Iniciar sesión" Width="70%" />
+      <PrimaryButton Text="Iniciar sesión" Width="70%" OnPress={onSubmit} />
 
       <View style={styles.container}>
         <Text style={styles.Text}>No tenes cuenta?</Text>

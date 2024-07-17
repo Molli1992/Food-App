@@ -7,11 +7,11 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "image": "default"
+        "image": "ubuntu-22.04-jdk-17-ndk-r21e"
       },
       "ios": {
         "simulator": true,
-        "image": "default"
+        "image": "macos-12-xcode-14.1"
       },
       "env": {
         "PRUEBA_ENV": "PRUEBA"
@@ -21,11 +21,11 @@
       "distribution": "internal",
       "android": {
         "buildType": "app-bundle",
-        "image": "default"
+        "image": "ubuntu-22.04-jdk-17-ndk-r21e"
       },
       "ios": {
         "simulator": true,
-        "image": "default"
+        "image": "macos-12-xcode-14.1"
       },
       "env": {
         "PRUEBA_ENV": "PRUEBA"
@@ -35,11 +35,11 @@
       "distribution": "store",
       "android": {
         "buildType": "app-bundle",
-        "image": "default"
+        "image": "ubuntu-22.04-jdk-17-ndk-r21e"
       },
       "ios": {
         "simulator": false,
-        "image": "default"
+        "image": "macos-12-xcode-14.1"
       },
       "env": {
         "PRUEBA_ENV": "PRUEBA"
@@ -52,9 +52,9 @@
         "serviceAccountKeyPath": "./path/to/your-service-account-file.json"
       },
       "ios": {
-        "appleId": "your-apple-id",
-        "ascAppId": "your-app-id",
-        "appleTeamId": "your-apple-team-id"
+        "appleId": "appleId",
+        "ascAppId": "ascAppId",
+        "appleTeamId": "appleTeamId"
       }
     }
   }
