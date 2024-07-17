@@ -9,9 +9,11 @@ import {
   deleteAllCarts,
   deleteCarts,
 } from "../redux/actions";
+import { useRoute } from "@react-navigation/native";
 
 function AddItmeChart(props) {
   const navigation = useNavigation();
+  const route = useRoute();
   const itemId = props.ID;
   const dispatch = useDispatch();
   const length = useSelector((state) => state.length);
@@ -37,6 +39,8 @@ function AddItmeChart(props) {
   const deleteAllItemsOfChart = () => {
     dispatch(deleteAllCarts(itemId));
   };
+
+  console.log(route.name);
   return (
     <View style={styles.bodyButtonsChart}>
       <TouchableOpacity onPress={deleteItemOfChart}>
@@ -68,15 +72,17 @@ function AddItmeChart(props) {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() =>
-          navigation.push("CardDetail", {
-            productId: itemId,
-          })
-        }
-      >
-        <Text style={styles.textTouchable}>Info</Text>
-      </TouchableOpacity>
+      {route.name === "CardDetail" ? null : (
+        <TouchableOpacity
+          onPress={() =>
+            navigation.push("CardDetail", {
+              productId: itemId,
+            })
+          }
+        >
+          <Text style={styles.textTouchable}>Info</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
