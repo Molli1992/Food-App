@@ -3,9 +3,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
+import { useRoute } from "@react-navigation/native";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-function IconChart() {
+function HeaderRigth() {
   const navigation = useNavigation();
+  const route = useRoute();
   const cart = useSelector((state) => state.cart);
 
   const uniqueIds = new Set();
@@ -22,8 +25,17 @@ function IconChart() {
     navigation.navigate("Chart");
   };
 
+  const routeProfile = () => {
+    navigation.navigate("Profile");
+  };
+
   return (
-    <View style={styles.bodyIconChart}>
+    <View style={styles.body}>
+      {route.name === "Login" || route.name === "Register" ? null : (
+        <TouchableOpacity onPress={routeProfile}>
+          <FontAwesome5 name="user-circle" size={25} color="#000000" />
+        </TouchableOpacity>
+      )}
       <TouchableOpacity onPress={routeChart}>
         <View style={styles.container}>
           <Text style={styles.text}>{uniqueCartItems.length}</Text>
@@ -35,13 +47,15 @@ function IconChart() {
 }
 
 const styles = StyleSheet.create({
-  bodyIconChart: {
+  body: {
     marginRight: 5,
+    flexDirection: "row",
   },
   container: {
     flexDirection: "row",
     alignItems: "center",
     gap: 5,
+    marginLeft: 10,
   },
   text: {
     fontSize: 15,
@@ -57,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IconChart;
+export default HeaderRigth;

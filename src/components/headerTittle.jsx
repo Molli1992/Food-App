@@ -14,6 +14,7 @@ function headerTittle(props) {
       navigation.navigate("Home");
     }
   };
+;
 
   return (
     <View>
@@ -24,6 +25,7 @@ function headerTittle(props) {
           <Text style={styles.text}>Food-App</Text>
         </TouchableOpacity>
       )}
+
     </View>
   );
 }

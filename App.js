@@ -1,16 +1,17 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./src/pages/Home";
+import Home from "./src/pages/home";
 import ProductDetail from "./src/pages/productDetail";
 import ShoppingChart from "./src/pages/shoppingChart";
-import IconChart from "./src/components/iconChart";
+import HeaderRigth from "./src/components/headerRigth";
 import PaymentPage from "./src/pages/paymentPage";
 import HeaderTittle from "./src/components/headerTittle";
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
-import Login from "./src/pages/Login";
-import Register from "./src/pages/Register";
+import Login from "./src/pages/login";
+import Register from "./src/pages/register";
+import Profile from "./src/pages/profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +38,7 @@ function App() {
             name="Home"
             options={{
               headerTitle: () => <HeaderTittle />,
-              headerRight: () => <IconChart />,
+              headerRight: () => <HeaderRigth />,
             }}
             component={Home}
           />
@@ -46,7 +47,7 @@ function App() {
             component={ProductDetail}
             options={{
               headerTitle: () => <HeaderTittle />,
-              headerRight: () => <IconChart />,
+              headerRight: () => <HeaderRigth />,
             }}
           />
           <Stack.Screen
@@ -54,7 +55,7 @@ function App() {
             component={ShoppingChart}
             options={{
               headerTitle: () => <HeaderTittle />,
-              headerRight: () => <IconChart />,
+              headerRight: () => <HeaderRigth />,
             }}
           />
           <Stack.Screen
@@ -62,7 +63,15 @@ function App() {
             component={PaymentPage}
             options={{
               headerTitle: () => <HeaderTittle />,
-              headerRight: () => <IconChart />,
+              headerRight: () => <HeaderRigth />,
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              headerTitle: () => <HeaderTittle />,
+              headerRight: () => <HeaderRigth />,
             }}
           />
         </Stack.Navigator>
