@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./src/pages/home";
+import Home from "./src/pages/Home";
 import ProductDetail from "./src/pages/productDetail";
 import ShoppingChart from "./src/pages/shoppingChart";
 import HeaderRigth from "./src/components/headerRigth";
@@ -9,8 +9,8 @@ import PaymentPage from "./src/pages/paymentPage";
 import HeaderTittle from "./src/components/headerTittle";
 import { Provider } from "react-redux";
 import store from "./src/redux/store";
-import Login from "./src/pages/login";
-import Register from "./src/pages/register";
+import Login from "./src/pages/Login";
+import Register from "./src/pages/Register";
 import Profile from "./src/pages/profile";
 
 const Stack = createNativeStackNavigator();
