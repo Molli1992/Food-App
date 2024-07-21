@@ -14,18 +14,15 @@ function headerTittle(props) {
       navigation.navigate("Home");
     }
   };
-;
-
   return (
     <View>
       {route.name === "Login" || route.name === "Register" ? (
         <Text style={styles.text}>{props.Title}</Text>
       ) : (
         <TouchableOpacity onPress={routeChart}>
-          <Text style={styles.text}>Food-App</Text>
+          <Text style={styles.text}>Menu</Text>
         </TouchableOpacity>
       )}
-
     </View>
   );
 }

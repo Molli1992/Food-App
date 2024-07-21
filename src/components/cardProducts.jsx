@@ -1,10 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import AddItemChart from "./addItmeChart";
+import { useNavigation } from "@react-navigation/native";
 
 function CardProducts(props) {
+  const navigation = useNavigation();
+
+  const seeCardDetail = () => {
+    navigation.push("CardDetail", {
+      productId: props.Array.id,
+    });
+  };
+  
   return (
-    <View style={styles.bodyCardProducts}>
+    <TouchableOpacity style={styles.bodyCardProducts} onPress={seeCardDetail}>
       <Image source={{ uri: props.Array.img }} style={styles.image} />
 
       <View style={styles.container} id={props.Array.id}>
@@ -16,7 +25,7 @@ function CardProducts(props) {
 
         <AddItemChart ID={props.Array.id} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

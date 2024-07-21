@@ -51,7 +51,7 @@ const ShoppingChart = () => {
         {uniqueCartItems.lenght !== 0 &&
           uniqueCartItems.map((cart) => {
             return (
-              <View style={styles.container} id={cart.id}>
+              <View style={styles.container} key={cart.id}>
                 <Image source={{ uri: cart.img }} style={styles.image} />
 
                 <View style={styles.containerText}>

@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import foods from "../data/dataFoods";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useNavigation } from "@react-navigation/native";
 import AddItemChart from "./addItmeChart";
+import { useDispatch } from "react-redux";
+import {
+  postCarts,
+  getLength,
+} from "../redux/actions";
+
 
 const CardDetail = () => {
-  const navigation = useNavigation();
+  const dispatch = useDispatch();
   const route = useRoute();
+  const navigation = useNavigation();
   const { productId } = route.params;
   const [food, setFood] = useState([]);
 
@@ -23,6 +29,12 @@ const CardDetail = () => {
       setFood(filterFood);
     }
   });
+
+  const onClickComprar = () => {
+    dispatch(postCarts(productId));
+    dispatch(getLength(productId));
+    navigation.navigate("Chart");
+  };
 
   if (food.length !== 0) {
     return (
@@ -40,11 +52,11 @@ const CardDetail = () => {
           <Icon name="star" size={15} color="#fff" style={styles.iconStyle} />
         </View>
 
-        <TouchableOpacity onPress={() => navigation.push("Home")}>
-          <Text style={styles.textHome}>Ir al inicio</Text>
-        </TouchableOpacity>
+        <AddItemChart ID={food[0].id} />
 
-        <AddItemChart ID={food[0].id}/>
+        <TouchableOpacity style={styles.buttonComprar} onPress={onClickComprar}>
+          <Text style={styles.textComprar}>Comprar</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -86,12 +98,18 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 17,
   },
-  textHome: {
-    color: "#0B7988",
+  buttonComprar: {
+    backgroundColor: "#0B7988",
+    padding: 7,
+    borderRadius: 10,
+    marginTop: 10,
+    width: 150,
+    alignItems: "center",
+  },
+  textComprar: {
+    color: "#ffffff",
     fontSize: 18,
     fontWeight: "400",
-    marginTop: 10,
-    marginBottom: 10,
   },
 });
 

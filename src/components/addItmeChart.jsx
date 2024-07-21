@@ -1,7 +1,6 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import {
   postCarts,
@@ -9,11 +8,8 @@ import {
   deleteAllCarts,
   deleteCarts,
 } from "../redux/actions";
-import { useRoute } from "@react-navigation/native";
 
 function AddItmeChart(props) {
-  const navigation = useNavigation();
-  const route = useRoute();
   const itemId = props.ID;
   const dispatch = useDispatch();
   const length = useSelector((state) => state.length);
@@ -43,45 +39,18 @@ function AddItmeChart(props) {
   return (
     <View style={styles.bodyButtonsChart}>
       <TouchableOpacity onPress={deleteItemOfChart}>
-        <Icon
-          name="arrow-left"
-          size={22}
-          color="#0B7988"
-          style={styles.iconStyle}
-        />
+        <Icon name="minus" size={28} color="#0B7988" />
       </TouchableOpacity>
 
-      <Text style={styles.text}>{lengthFilter.length}</Text>
+      <Text style={styles.textLength}>{lengthFilter.length}</Text>
 
       <TouchableOpacity onPress={addItemToChart}>
-        <Icon
-          name="arrow-right"
-          size={22}
-          color="#0B7988"
-          style={styles.iconStyle}
-        />
+        <Icon name="plus" size={30} color="#0B7988" />
       </TouchableOpacity>
 
       <TouchableOpacity onPress={deleteAllItemsOfChart}>
-        <Icon
-          name="delete"
-          size={22}
-          color="#0B7988"
-          style={styles.iconStyle}
-        />
+        <Icon name="delete" size={28} color="#0B7988" />
       </TouchableOpacity>
-
-      {route.name === "CardDetail" ? null : (
-        <TouchableOpacity
-          onPress={() =>
-            navigation.push("CardDetail", {
-              productId: itemId,
-            })
-          }
-        >
-          <Text style={styles.textTouchable}>Info</Text>
-        </TouchableOpacity>
-      )}
     </View>
   );
 }
@@ -90,10 +59,10 @@ const styles = StyleSheet.create({
   bodyButtonsChart: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
+    gap: 20,
     marginTop: 5,
   },
-  text: {
+  textLength: {
     color: "#0B7988",
     fontWeight: "bold",
     fontSize: 18,

@@ -1,8 +1,17 @@
 import React from "react";
-import { FlatList, StyleSheet, Image, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Image,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import AddItemChart from "./addItmeChart";
+import { useNavigation } from "@react-navigation/native";
 
 function FoodList(props) {
+  const navigation = useNavigation();
   if (props.Position) {
     return (
       <FlatList
@@ -12,7 +21,14 @@ function FoodList(props) {
         data={props.Array}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item: food }) => (
-          <View style={styles.containerFoods}>
+          <TouchableOpacity
+            style={styles.containerFoods}
+            onPress={() => {
+              navigation.push("CardDetail", {
+                productId: food.id,
+              });
+            }}
+          >
             <Image source={{ uri: food.img }} style={styles.image} />
             <View style={styles.containerText}>
               <Text style={styles.textTittle}>{food.name}</Text>
@@ -20,7 +36,7 @@ function FoodList(props) {
               <Text style={styles.text}>${food.price}</Text>
               <AddItemChart ID={food.id} />
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     );
@@ -32,7 +48,14 @@ function FoodList(props) {
         data={props.Array}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item: food }) => (
-          <View style={styles.containerFoods}>
+          <TouchableOpacity
+            style={styles.containerFoods}
+            onPress={() => {
+              navigation.push("CardDetail", {
+                productId: food.id,
+              });
+            }}
+          >
             <Image source={{ uri: food.img }} style={styles.image} />
             <View style={styles.containerText}>
               <Text style={styles.textTittle}>{food.name}</Text>
@@ -40,7 +63,7 @@ function FoodList(props) {
               <Text style={styles.text}>${food.price}</Text>
               <AddItemChart ID={food.id} />
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     );
